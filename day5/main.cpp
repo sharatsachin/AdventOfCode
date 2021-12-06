@@ -20,33 +20,17 @@ int main(int argc, char** argv) {
         if (mat2[x][y] == 2) sol2++;
     };
 
-    int a, b, c, d;
+    int x1, y1, x2, y2;
     for (int i = 0; i < L; i++) {
-        scanf("%d,%d -> %d,%d", &a, &b, &c, &d);
-
-        // arrange such that a <= c and (b <= d if a == c)
-        if (a > c) swap(a, c), swap(b, d);
-        if (a == c && b > d) swap(b, d);
-        int x = a, y = b;
-
+        scanf("%d,%d -> %d,%d", &x1, &y1, &x2, &y2);
         // check if line is vertical or horizontal
-        bool vh = (a == c || b == d);
+        bool vh = (x1 == x2 || y1 == y2);
 
         // finding each point in the line
-        if (a == c) {
-            intersect(x, y, vh);
-            while (y < d) {
-                y++;
-                intersect(x, y, vh);
-            }
-        } else {
-            intersect(x, y, vh);
-            while (x < c) {
-                x += 1;
-                y += ((d - b) / (c - a));
-                intersect(x, y, vh);
-            }
-        }
+        int n = max(abs(x1 - x2), abs(y1 - y2)) + 1;
+        int dx = (x2 - x1) / (n - 1);
+        int dy = (y2 - y1) / (n - 1);
+        for (int x = x1, y = y1; n--; x += dx, y += dy) intersect(x, y, vh);
     }
 
     // solution for both subtasks

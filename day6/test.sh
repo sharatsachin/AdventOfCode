@@ -4,9 +4,9 @@ clang-format  -style=file -i main.cpp
 
 g++ -std=c++17 main.cpp -o main
 chmod 744 main
-echo "= output ="
+echo -e "\n= output ="
 ./main small < input1.txt
-echo "= actual ="
+echo -e "\n= actual ="
 cat < actual1.txt
 echo -e "\n=========="
 
