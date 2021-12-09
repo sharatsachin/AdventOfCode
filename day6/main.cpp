@@ -29,8 +29,8 @@ int main(int argc, char** argv) {
         mp[6] += ze, mp[8] += ze;
         // increment current day counter
         curd++;
+        cout << curd << ' ' << accumulate(mp.begin(), mp.end(), 0ll) << '\n';
     }
-    long long sol = accumulate(mp.begin(), mp.end(), 0ll);
-    cout << sol << "\n";
+    cout << accumulate(mp.begin(), mp.end(), 0ll) << "\n";
     return 0;
 }
