@@ -2,6 +2,7 @@
 using namespace std;
 
 string HexToBin(string hexdec) {
+    // convert hex string to binary string, easiest way in C++ lol 
     long long i = 0;
     string ret;
     for (char c : hexdec) {
@@ -61,6 +62,7 @@ string HexToBin(string hexdec) {
 
 long long sumver = 0;
 
+// resursive parser, extract sections from the string, part by part
 pair<string, long long> parse(string data) {
     if (data.length() == 0) return {"", 0};
 
