@@ -9,7 +9,7 @@ using vvi = vector<vi>;
 using vvvi = vector<vvi>;
 
 // list of coordinate transformation vectors
-vector<vvi> trans = {
+vvvi trans = {
     {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}},    {{1, 0, 0}, {0, 0, -1}, {0, 1, 0}},  {{1, 0, 0}, {0, -1, 0}, {0, 0, -1}},
     {{1, 0, 0}, {0, 0, 1}, {0, -1, 0}},   {{0, -1, 0}, {1, 0, 0}, {0, 0, 1}},  {{0, 0, 1}, {1, 0, 0}, {0, 1, 0}},
     {{0, 1, 0}, {1, 0, 0}, {0, 0, -1}},   {{0, 0, -1}, {1, 0, 0}, {0, -1, 0}}, {{-1, 0, 0}, {0, -1, 0}, {0, 0, 1}},
@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
     L = (argv[1][0] == 'b' ? 28 : 5);
 
     // list of observations for each scanner
-    vector<vvi> obss(L);
+    vvvi obss(L);
     string ph;
     cin >> ph;
 
@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
             string str;
             cin >> str;
             if (str == "---") break;
-            vector<int> v;
+            vi v;
             stringstream ss(str);
             while (ss.good()) {
                 string substr;
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
     }
 
     // creating a set of all beacons, starting with beacons under first scanner
-    set<vector<int>> beacons(obss[0].begin(), obss[0].end());
+    set<vi> beacons(obss[0].begin(), obss[0].end());
 
     // list of unmerged scanners
     set<int> unmerged;
@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
                 bool plus12 = false;
 
                 // mapping distance from each beacon to beacons in composite list
-                map<vector<int>, int> mp;
+                map<vi, int> mp;
                 for (auto row1 : obss[um]) {
                     for (auto row2 : beacons) {
                         vi Y = multiply(row1, trans[i]);
