@@ -1,0 +1,16 @@
+{1, 13, 6},
+{1, 15, 7},
+{1, 15, 10},
+{1, 11, 2},
+{26, -7, 15},
+{1, 10, 8},
+{1, 10, 1},
+{26, -5, 10},
+{1, 15, 5},
+{26, -3, 3},
+{26, 0, 5},
+{26, -5, 11},
+{26, -9, 12},
+{26, 0, 10}
+
+inp w\nmul x 0\nadd x z\nmod x 26\ndiv z ([\d]+)\nadd x ([-\d]+)\neql x w\neql x 0\nmul y 0\nadd y 25\nmul y x\nadd y 1\nmul z y\nmul y 0\nadd y w\nadd y ([\d]+)\nmul y x\nadd z y
